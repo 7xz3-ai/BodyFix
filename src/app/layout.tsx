@@ -5,25 +5,41 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "BodyFix | Expert Osteopathy & Manual Therapy in Birmingham",
-    template: "%s | BodyFix",
+    default: "BodyFix - Back Pain Relief in Birmingham, Manual Therapy",
+    template: "%s | BodyFix Osteopathy Birmingham",
   },
   description:
-    "Fixing Bodies, Improving Function. Expert osteopathy and manual therapy in Birmingham to diagnose, treat, and keep you pain-free. Book your appointment today.",
+    "Fixing Bodies, Improving Function. Result-focused hands-on treatment, osteopathy, and professional advice in Birmingham.",
   keywords: [
     "osteopathy",
     "osteopath Birmingham",
-    "back pain relief",
-    "sports massage",
+    "back pain relief Birmingham",
+    "sports massage Birmingham",
     "manual therapy",
     "posture correction",
     "rehabilitation",
     "BodyFix",
+    "osteopathy clinic",
+    "pain management",
   ],
+  authors: [{ name: "BodyFix Osteopathy" }],
   openGraph: {
     type: "website",
     locale: "en_GB",
-    siteName: "BodyFix",
+    siteName: "BodyFix Osteopathy",
+    title: "BodyFix - Back Pain Relief in Birmingham, Manual Therapy",
+    description:
+      "Fixing Bodies, Improving Function. Result-focused hands-on treatment, osteopathy, and professional advice in Birmingham.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BodyFix - Back Pain Relief in Birmingham, Manual Therapy",
+    description:
+      "Fixing Bodies, Improving Function. Result-focused hands-on treatment, osteopathy, and professional advice in Birmingham.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -34,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-1 pt-[73px]">{children}</main>
         <Footer />

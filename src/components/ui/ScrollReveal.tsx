@@ -15,10 +15,10 @@ interface ScrollRevealProps {
 }
 
 const directionOffset: Record<Direction, { x: number; y: number }> = {
-  up: { x: 0, y: 40 },
-  down: { x: 0, y: -40 },
-  left: { x: 40, y: 0 },
-  right: { x: -40, y: 0 },
+  up: { x: 0, y: 20 },
+  down: { x: 0, y: -20 },
+  left: { x: 20, y: 0 },
+  right: { x: -20, y: 0 },
   none: { x: 0, y: 0 },
 };
 
@@ -26,7 +26,7 @@ export default function ScrollReveal({
   children,
   direction = "up",
   delay = 0,
-  duration = 0.6,
+  duration = 0.5,
   className,
   once = true,
 }: ScrollRevealProps) {
@@ -53,7 +53,7 @@ export default function ScrollReveal({
     <motion.div
       initial={hidden}
       whileInView={visible}
-      viewport={{ once, margin: "-80px" }}
+      viewport={{ once, margin: "-60px" }}
       className={className}
     >
       {children}

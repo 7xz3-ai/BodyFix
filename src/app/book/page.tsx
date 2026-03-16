@@ -4,14 +4,18 @@ import BookingFlow from "@/components/booking/BookingFlow";
 export const metadata: Metadata = {
   title: "Book an Appointment",
   description:
-    "Book your osteopathy appointment at BodyFix Birmingham. Easy online scheduling for consultations, follow-ups, and sports massage.",
+    "Book your osteopathy appointment at BodyFix Birmingham. Easy online scheduling for initial consultations, follow-ups, and sports massage sessions.",
+  openGraph: {
+    title: "Book an Appointment | BodyFix Osteopathy Birmingham",
+    description:
+      "Book your osteopathy appointment at BodyFix Birmingham. Easy online scheduling.",
+  },
 };
 
 export default function BookPage() {
   return (
     <section className="bg-surface-alt min-h-screen py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Page header */}
         <div className="mb-12 text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent-600">
             Book Online
@@ -24,7 +28,6 @@ export default function BookPage() {
             appointment in minutes.
           </p>
         </div>
-
         <BookingFlow />
       </div>
     </section>
