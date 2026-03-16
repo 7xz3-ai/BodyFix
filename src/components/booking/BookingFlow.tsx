@@ -9,21 +9,31 @@ import StepPatientDetails from "./StepPatientDetails";
 import StepConfirmation from "./StepConfirmation";
 import { INITIAL_BOOKING_DATA, type BookingData, type ServiceOption } from "./types";
 
-/**
- * Submit the booking to your backend.
- *
- * DEVELOPER NOTE: Replace this mock with your real API call.
- * Example integrations:
- *   - POST to a Next.js API route: fetch("/api/bookings", { method: "POST", body: JSON.stringify(data) })
- *   - Supabase: supabase.from("bookings").insert(data)
- *   - Resend (email confirmation): fetch("/api/send-confirmation", { ... })
- */
-async function submitBooking(data: BookingData): Promise<{ success: boolean }> {
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 1500));
-  // eslint-disable-next-line no-console
-  console.log("Booking submitted:", data);
-  return { success: true };
+async function submitBooking(
+  data: BookingData
+): Promise<{ success: boolean; error?: string }> {
+  const response = await fetch("/api/bookings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      service: data.service,
+      date: data.date?.toISOString(),
+      time: data.time,
+      notes: data.notes,
+    }),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result.error || "Booking failed");
+  }
+
+  return result;
 }
 
 const slideVariants = {
